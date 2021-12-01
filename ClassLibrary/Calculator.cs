@@ -10,16 +10,8 @@
                 returnValue = 0;
             } else
             {
-                //var delimiter = ",";
-                //if (value.Contains(Environment.NewLine))
-                //{
-                //    delimiter = Environment.NewLine;
-                //}
-                //var values = value.Split(delimiter).Select(x => int.Parse(x));
-
                 var delimiters = new char[] { ',', '\n' };
                 var values = value.Split(delimiters).Select(x => int.Parse(x));
-
 
                 var negativeValues = values.Where(x => x < 0);
                 if (negativeValues.ToArray().Length > 0)

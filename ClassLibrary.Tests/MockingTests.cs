@@ -7,7 +7,7 @@ namespace ClassLibrary.Test
     public class MockingTests
     {
         [TestMethod]
-        public void Can_get_the_current_datetime_fail()
+        public void Can_get_the_production_datetime()
         {
             // arrange
             var sut = new MockingDemo();
@@ -16,12 +16,12 @@ namespace ClassLibrary.Test
             var actual = sut.GetDateTime();
 
             // assert
-            Assert.AreEqual(System.DateTime.Now, actual, "this will always fails as the time has changed between the start and the end of the test");
+            Assert.AreEqual(System.DateTime.Now, actual, "This will always fails as the time has changed between the start and the end of the test");
 
         }
 
         [TestMethod]
-        public void Can_get_the_current_datetime_manually_mocked()
+        public void Can_get_the_manually_mocked_datetime()
         {
             // arrange
             var testdate = new System.DateTime(2021, 1, 1, 12, 0, 0);
@@ -37,7 +37,7 @@ namespace ClassLibrary.Test
         }
 
         [TestMethod]
-        public void Can_get_the_current_datetime_auto_mocked()
+        public void Can_get_the_auto_mocked_datetime()
         {
             // arrange
             var testdate = new System.DateTime(2021, 1, 1, 12, 0, 0);
@@ -51,6 +51,8 @@ namespace ClassLibrary.Test
 
             // assert
             Assert.AreEqual(testdate, actual);
+            provider.Verify(p => p.GetDateTime(), Times.Once);
+
 
         }
 
