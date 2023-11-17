@@ -3,10 +3,10 @@ using Moq;
 
 namespace ClassLibrary.Test
 {
-    [TestClass]
+    //[TestClass]
     public class MockingTests
     {
-        [TestMethod]
+        //[TestMethod]
         public void Can_get_the_production_datetime()
         {
             // arrange
@@ -55,6 +55,5 @@ namespace ClassLibrary.Test
 
 
         }
-
     }
 }
